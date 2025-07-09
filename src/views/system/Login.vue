@@ -7,9 +7,9 @@
           输入您的账号和密码登录
         </div>
         <el-form
-          ref="form"
+          ref="formRef"
           :model="formData"
-          class="w-full mt-4"
+          class="form-container w-full mt-4"
           label-position="right"
         >
           <el-form-item
@@ -50,29 +50,23 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { valid } from '@/utils/validators.ts';
+import type { FormInstance } from 'element-plus';
+import { notify } from '@/utils/notify.ts';
 
 defineOptions({
   name: 'MspToolsAdvantageProvinceConfigAdd'
 });
 
-const form = ref(null);
+const formRef = ref<FormInstance>();
 const formData = reactive({
   account: '',
   password: ''
 });
 
 const onSubmit = () => {
-  form.value?.validate(valid => {
-    if (!valid) return;
+  formRef.value?.validate((valid: boolean): any => {
+    if (!valid) return notify.warning('请填写完整');
   });
-  // if (!formEl) return
-  // await formEl.validate((valid, fields) => {
-  //   if (valid) {
-  //     console.log('submit!')
-  //   } else {
-  //     console.log('error submit!', fields)
-  //   }
-  // })
 };
 </script>
 
