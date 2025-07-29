@@ -41,6 +41,9 @@
               登录
             </el-button>
           </el-form-item>
+          <el-form-item>
+            <DragSlider />
+          </el-form-item>
         </el-form>
       </div>
     </div>
@@ -52,10 +55,9 @@ import { reactive, ref } from 'vue';
 import { valid } from '@/utils/validators.ts';
 import type { FormInstance } from 'element-plus';
 import { notify } from '@/utils/notify.ts';
+import DragSlider from '@/components/dragSlider/DragSlider.vue';
 
-defineOptions({
-  name: 'MspToolsAdvantageProvinceConfigAdd'
-});
+defineOptions({ name: 'Login' });
 
 const formRef = ref<FormInstance>();
 const formData = reactive({
@@ -72,15 +74,15 @@ const onSubmit = () => {
 
 <style scoped lang="less">
 .login-container {
-  background-image:
-    url('https://static.liuliangguo.com/website/2025/07/02/10/8e9e3ff17ed9ccdd589d1b1b9c04e0b1.webp'),
-    url('https://static.liuliangguo.com/website/2025/07/02/10/78e3d7fab938dc49fcadeee4f3522eb2.webp');
-  background-position:
-    center center,
-    left center;
-  background-repeat: no-repeat no-repeat;
-  .container {
-    box-shadow: 0.125rem 0.125rem #99c2f4;
-  }
+  //background-image:
+  //  url('https://static.liuliangguo.com/website/2025/07/02/10/8e9e3ff17ed9ccdd589d1b1b9c04e0b1.webp'),
+  //  url('https://static.liuliangguo.com/website/2025/07/02/10/78e3d7fab938dc49fcadeee4f3522eb2.webp');
+  //background-position:
+  //  center center,
+  //  left center;
+  //background-repeat: no-repeat no-repeat;
+  //.container {
+  //  box-shadow: 0.125rem 0.125rem #99c2f4;
+  //}
 }
 </style>
